@@ -60,4 +60,16 @@ public class ProductoService {
 
         return  id;
     }
+
+    public void editar(ProductoModel productoModificado){
+        for (ProductoModel producto :
+                productos) {
+            if (producto.getId() == productoModificado.getId()) {
+//                producto = productoModificado;
+                producto.setNombre(productoModificado.getNombre());
+                producto.setDescripcion(productoModificado.getDescripcion());
+                break;
+            }
+        }
+    }
 }

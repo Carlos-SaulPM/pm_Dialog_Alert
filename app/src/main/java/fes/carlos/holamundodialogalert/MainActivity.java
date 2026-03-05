@@ -18,6 +18,7 @@ import androidx.core.view.WindowInsetsCompat;
 import java.util.List;
 
 import fes.carlos.holamundodialogalert.activities.AgregarActivity;
+import fes.carlos.holamundodialogalert.activities.DetallesActivity;
 import fes.carlos.holamundodialogalert.activities.EditarActivity;
 import fes.carlos.holamundodialogalert.models.ProductoModel;
 import fes.carlos.holamundodialogalert.services.ProductoService;
@@ -107,6 +108,13 @@ public class MainActivity extends AppCompatActivity {
 
     public void irAEditar(View view){
         Intent intent = new Intent(this, EditarActivity.class);
+        ProductoModel productoModel = (ProductoModel) spinner.getSelectedItem();
+        intent.putExtra("ProductoId", productoModel.getId());
+        startActivity(intent);
+    }
+
+    public void irADetalles(View view){
+        Intent intent = new Intent(this, DetallesActivity.class);
         ProductoModel productoModel = (ProductoModel) spinner.getSelectedItem();
         intent.putExtra("ProductoId", productoModel.getId());
         startActivity(intent);
